@@ -1,0 +1,4 @@
+name: HardcorePlus
+version: '1.0-SNAPSHOT'
+main: me.steazox.hardcoreplus.HardcorePlus
+api-version: 1.20
