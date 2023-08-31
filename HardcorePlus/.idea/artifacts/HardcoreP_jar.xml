@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="HardcoreP:jar">
+    <output-path>$PROJECT_DIR$/../../../../local/skyblock/plugins</output-path>
+    <root id="archive" name="HardcoreP.jar">
+      <element id="module-output" name="HardcoreP" />
+    </root>
+  </artifact>
+</component>

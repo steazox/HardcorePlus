@@ -1,0 +1,4 @@
+name: HardcoreP
+version: '${project.version}'
+main: me.steazox.hardcorep.HardcoreP
+api-version: 1.20
