@@ -27,5 +27,8 @@ You can customize DeathBan by editing the `config.yml` file located in the `plug
 Example `config.yml`:
 
 ```yaml
-ban-duration: 60
-ban-message: "You have been banned for {duration} minutes."
+ban:
+  ban-time: 120
+  # time in minutes (-1 in for all time)
+  ban-message: "You have been banned for 2 hours.\nReason: Died in HardcorePlus.\nBanned by: Server.\nBan will expire at: {expiration}"
+```
