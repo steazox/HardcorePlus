@@ -1,0 +1,4 @@
+ban:
+  ban-time: 120
+  # time in minutes (-1 in for all time)
+  ban-message: "You have been banned for 2 hours.\nReason: Died in HardcorePlus.\nBanned by: Server.\nBan will expire at: {expiration}"

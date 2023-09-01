@@ -3,7 +3,6 @@ package me.steazox.hardcorep.Event;
 import me.steazox.hardcorep.HardcoreP;
 import org.bukkit.BanList;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -42,22 +41,28 @@ public class OnDeath implements Listener {
             // Ban the player
             String banReason = "Died in HardcorePlus";
 
-            Date banExpiration = new Date(System.currentTimeMillis() + core.getConfig().getInt("ban.ban-time") * 60000);
-            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-            String formattedTime = sdf.format(banExpiration);
-            String banMessgae = ChatColor.RED + "You have been banned for 2 hours.\n"
-                    + ChatColor.YELLOW + "Reason: " + ChatColor.WHITE + banReason + "\n"
-                    + ChatColor.YELLOW + "Ban will expire at: " + ChatColor.WHITE + formattedTime + " UTC";
+            long expirationTimeMillis = getExpirationTimeInMillis();
+            Date banExpiration = new Date(expirationTimeMillis);
+
+            String banMessage = core.getConfig().getString("ban.ban-message");
+            banMessage = banMessage.replace("{expiration}", getFormattedExpirationTime());
             BanList banList = Bukkit.getBanList(BanList.Type.NAME);
 
-            banList.addBan(player.getName(), banMessgae, banExpiration, "Server");
+            banList.addBan(player.getName(), banMessage, banExpiration, "Server");
 
-            // Kick the player from the server with a stylized message
-            String kickMessage = ChatColor.RED + "You have been banned for 2 hours.\n"
-                    + ChatColor.YELLOW + "Reason: " + ChatColor.WHITE + banReason + "\n"
-                    + ChatColor.YELLOW + "Ban will expire at: " + ChatColor.WHITE + formattedTime + " UTC";
-
-            player.kickPlayer(kickMessage);
+            player.kickPlayer(banMessage);
         }
+
+
     }
+
+    private String getFormattedExpirationTime() {
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+        return sdf.format(new Date(System.currentTimeMillis() + core.getConfig().getInt("ban.ban-time") * 60000)) + " UTC";
+    }
+
+    private long getExpirationTimeInMillis() {
+        return System.currentTimeMillis() + core.getConfig().getInt("ban.ban-time") * 60000;
+    }
+
 }

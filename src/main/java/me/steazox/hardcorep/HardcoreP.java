@@ -11,6 +11,6 @@ public final class HardcoreP extends JavaPlugin {
         saveDefaultConfig();
         Bukkit.getPluginManager().registerEvents(new OnDeath(this), this);
         getLogger().info(getConfig().getInt("ban.ban-time") + " minutes of ban");
+        getLogger().info(getConfig().getString("ban.ban-message"));
     }
-
 }

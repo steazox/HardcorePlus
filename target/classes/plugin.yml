@@ -1,4 +1,4 @@
-name: HardcorePlus
+name: HardcoreP
 version: '1.0-SNAPSHOT'
-main: me.steazox.hardcoreplus.HardcorePlus
+main: me.steazox.hardcorep.HardcoreP
 api-version: 1.20
