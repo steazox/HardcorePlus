@@ -2,7 +2,7 @@
 
 ## Description
 
-DeathBan is a Minecraft Spigot plugin designed to add a unique gameplay mechanic to your server. When players die, they will be temporarily banned from the server for a specified duration. This adds an extra layer of challenge and excitement to your Minecraft server.
+HardcorePlus is a Minecraft Spigot plugin designed to add a unique gameplay mechanic to your server. When players die, they will be temporarily banned from the server for a specified duration. This adds an extra layer of challenge and excitement to your Minecraft server.
 
 ## Features
 
